@@ -23,7 +23,7 @@ we would love you to include unit tests for your submission.
 You will NOT be judged on the visual appearance of your application. Dont waste time making things pretty.
 
 ## Dependencies
-This application uses Rails 5.2 and Ruby 4.2.0. If you do not already have Ruby available on your machine, we suggest 
+This application uses Rails 5.2 and Ruby 2.4.0. If you do not already have Ruby available on your machine, we suggest 
 you use [RVM](https://rvm.io/rvm/install) to install it.
 
 You will also need to install Bundler:
@@ -39,7 +39,7 @@ bundle install
 ## Configuration
 Copy the included `.env.example` file:
 ```
-cp .env.example .env
+cp .env-example .env
 ```
 
 Open the newly created `.env` file and fill in the `BC_API_KEY` field with the key supplied in the email along with this
