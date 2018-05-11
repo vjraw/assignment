@@ -1,4 +1,4 @@
-<% content_for :title { "#{@customer.first_name}'s Order History" } %>
+<% content_for :title { @customer.present? ? "#{@customer.first_name}'s Order History" : "`"} %>
 
 <table>
   <thead>
@@ -9,6 +9,7 @@
     </tr>
   </thead>
   <tbody>
+<% if @orders.present? %>
    <% @orders.each do |order| %>
     <tr>
         <td><%= order[0] %></td>
@@ -21,6 +22,11 @@
       <td colspan="2">Lifetime Value</td>
       <td><%= number_with_precision(@lifetime_value, precision: 2) %></td>
     </tr>
+<% else %>
+   <tr>
+	<td>No Records Available</td>
+   </tr>
+<% end %>
    <% # TODO add pagination %>
   </tbody>
 </table>
