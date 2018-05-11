@@ -8,6 +8,12 @@
     </tr>
   </thead>
   <tbody>
-    <% # Details go here %>
+ <% @customers.each do |customer| %>
+    <tr>
+       <td><a href="/customers/<%=customer[1]%>"><%= customer[0] %></a></td>
+       <td><%= orders_count(@order_ids, customer[1]) %></td>
+    </tr>
+ <% end %>
+<% # TODO add pagination %>
   </tbody>
 </table>

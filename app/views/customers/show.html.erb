@@ -9,12 +9,18 @@
     </tr>
   </thead>
   <tbody>
-
-    <% # Details go here %>
+   <% @orders.each do |order| %>
+    <tr>
+        <td><%= order[0] %></td>
+        <td><%= product_count(order[1]) %></td>
+        <td><%= number_with_precision(order[2], precision: 2) %></td>
+    </tr>
+   <% end %>
 
     <tr>
       <td colspan="2">Lifetime Value</td>
-      <td><%= @lifetime_value %></td>
+      <td><%= number_with_precision(@lifetime_value, precision: 2) %></td>
     </tr>
+   <% # TODO add pagination %>
   </tbody>
 </table>
