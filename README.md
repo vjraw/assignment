@@ -66,3 +66,12 @@ bundle exec rspec
 ## Submitting
 Your assignment should be submitted as a Git repository hosted on a service like [GitHub](https://github.com),
 [BitBucket](https://bitbucket.org/) or [GitLab](https://gitlab.com/).
+
+
+heroku run rails runner 'require "csv"
+csv = CSV.generate do |csv|
+  CSV.new(open("https://github.com/vjraw/assignment/blob/master/results.csv"), :headers => :first_row).each do |row|
+    Sixdigit.create(number_res: [row["#1"], row["#2"], row["#3"], row["#4"], row["#5"], row["#6"]], number_type: row["Day"].downcase, number_sup: [row["S1"], row["S2"]], number_name: "nsw", issued_on: row["Date"].to_date)
+  end
+end
+puts csv' --app jppdigital-staging
